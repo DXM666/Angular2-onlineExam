@@ -1,0 +1,34 @@
+<HTML>
+	<HEAD>
+	<!--<META name=Generator content=EditPlus>-->
+	<!--<META name=Author content="">-->
+	<!--<META name=Keywords content="">-->
+	<!--<META name=Description content="">-->
+	<script src="jquery-1.8.2.min.js"></script>
+	<script>
+	$(function(){
+	//$("#loaddata").click(function(){
+	$(document).ready(function(){
+	//使用getJSON方法读取json数据,
+	//注意：info.json可以是不同类型文件，只要其中的数据为json类型即可
+	$.getJSON('info.json',function(data){
+	var html ='';
+	$.each(data,function(i,item){
+	html +='<TR><TD>'+item['name']+'</TD>'+
+	'<TD>'+item['age']+'</TD>'+
+	'<TD>'+item.school+'</TD>'+
+	'<TD>'+item['education']+'</TD></TR>';
+	});
+	$('#title').after(html);
+	//after方法:在每个匹配的元素之后插入内容。
+	});
+	});
+	});
+	//注:可以是item.address,也可以是item['address']
+	//firefox报 json文件中 &ldquo;语法错误 [&rdquo;,单能加载数据 //ie chrome 无法加载数据
+	</script>
+    </HEAD>
+    <body>
+	<INPUT id=loaddata value=jiazai type=button>
+	<TABLE  id=infotable><TBODY><TR  id=title><TH>xingming</TH><TH>xingbie</TH><TH>address</TH><TH>home</TH></TR></TBODY></TABLE>
+    </body>

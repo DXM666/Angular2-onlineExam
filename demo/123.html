@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+var stu = [
+{ "name": "张三", "school": "男","perfession":"通信工程",
+    "age": "20","education":"本科","system":"全日制" }
+];
+
+
+$(document).ready(function() {
+    $.getJSON('info.json', function (data) {
+        var s = "";
+        s = "<tr><td>姓名</td><td>" + stu[0].name + "</td><td>年龄</td><td>" + stu[0].age + "</td></tr>" +
+            "<tr><td>学校</td><td>" + stu[0].school + "</td><td>学历</td><td>" + stu[0].education + "</td></tr>" +
+            "<tr><td>专业</td><td>" + stu[0].perfession + "</td><td>学制</td><td>" + stu[0].system + "</td></tr>";
+        $("#tab").append(s);
+
+    });
+});
+</script>
+</head>
+
+<body>
+<table border="1px" id="tab">
+<!--<tr>-->
+<!--<td>姓名</td>-->
+<!--<td>性别</td>-->
+<!--<td>年龄</td>-->
+<!--</tr>-->
+</table>
+</body>
+
+</html>

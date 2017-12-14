@@ -1,0 +1,64 @@
+
+        <div class="homepagebody">
+            <div class="modify_top" >
+                <div class="modify_top_content" style="background-color:#E8E8E8 ;width:100%;color:black">
+                    <span style="line-height: 50px; color:black;margin-right:10px;top:-50px;float:right;">Hello,{{name}}!</span>                      
+                    <span style="font-size: 20px; line-height: 50px;color:black">OnlineExaminationSystem</span>
+                </div>
+            </div>
+            
+            <div *ngIf="datas?.length > 0" style="padding-top:200px;"></div>
+            
+            <div class="button" *ngIf="datas && datas.length > 0">
+                <button class="Exam" *ngIf="datas[0].objectiveScore == -1" 
+                    (click)="startexam(userInfor.UserName,datas[0].examNum,'开始考试')">
+                    开始考试</button></div>
+            <div class="button" *ngIf="datas && datas.length > 0">
+                <button class="Exam" *ngIf="datas[0].examNum != 3 && datas[0].objectiveScore > -1" 
+                    (click)="startexam(userInfor.UserName,datas[0].examNum+1,'开始考试')">
+                    开始考试</button></div>
+            <div class="button" *ngIf="datas && datas.length > 0">
+                <button class="Exam" *ngIf="datas[0].objectiveScore == -2" 
+                [style.background-color]="'#0085cf'" (click)="startexam(userInfor.UserName,datas[0].examNum,'继续考试')">
+                    继续考试</button></div>
+            <div class="button" *ngIf="datas && datas.length > 0">
+                <button class="Exam" *ngIf="datas[0].examNum == 3 && datas[0].objectiveScore > -1" [style.background-color]="'rgba(90, 61, 61, 0.56)'">
+                    考试结束</button></div>
+
+
+            <div class="count" *ngIf="datas && datas.length > 0 && datas[0].objectiveScore < 0 ">
+                <span class="words">剩余考试次数：{{4-datas[0].examNum}}次</span></div>
+            <div class="count" *ngIf="datas && datas.length > 0 && datas[0].objectiveScore >= 0">
+                <span class="words">剩余考试次数：{{3-datas[0].examNum}}次</span></div> 
+
+            <div class="endtime"  *ngIf="datas && datas.length > 0"><span class="words">考试截止日期：{{endtime}}</span></div>
+
+            <div class="exam-error" *ngIf="datas?.length < 1"><span>{{error}}</span></div>
+
+            <div  class="grade" *ngIf="datas?.length > 0 && !(datas.length === 1 && datas[0].objectiveScore < 0) ">
+                <span class="words">您的成绩列表：</span></div>
+            <div class="table"  *ngIf="datas && datas.length > 0 ">
+               <div *ngIf="!(datas.length === 1 && datas[0].objectiveScore < 0) ">
+                <table>
+                <thead>
+                    <tr>
+                        <th>考试次数</th>
+                        <th>客观题分数</th>
+                        <th>主观题分数</th>
+                        <th>总成绩（点击查看试卷详情）</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let data of datas" >
+                    <tr *ngIf="data.objectiveScore > 0">
+                        <td>第{{data.examNum}}次</td>
+                        <td>{{data.objectiveScore | statusReform}}</td>
+                        <td>{{data.subjectiveScore | statusReform}}</td>
+                        <td><button class="OverallResult" (click)="details(userInfor.UserName,data.examNum)">
+                            {{data.totalScore | statusReform}}</button></td>
+                    </tr>
+                </tbody>
+                </table>
+               </div>
+            </div> 
+            <div style="height:40px;"></div>
+        </div>

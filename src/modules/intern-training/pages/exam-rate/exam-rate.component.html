@@ -1,0 +1,39 @@
+<div class="modify_top" style="background-color: #DA9D9D">
+    <div class="modify_top_content">
+        <span style="float:right; line-height: 50px; color:aliceblue;margin-right:10px;">{{HRname}},Welcome</span>
+        <span style="font-size: 20px; line-height: 50px;color:aliceblue">OnlineExaminationSystem</span>
+    </div>
+</div>
+
+
+<div class="page_body_label">
+    <button style="margin-left: 14%" (click)="tomodify()" class="modify_body_button">批改试卷</button>
+    <button style="margin-left: 15%" (click)="score()" class="modify_body_button">查询成绩</button>
+    <button style="margin-left: 15%" (click)="statis()" class="modify_body_button">情况统计</button>
+    <button style="margin-left: 15%" (click)="time()" class="modify_body_button">设置时间</button>
+</div>
+<div class="exam-rate">
+    <div class="sub" *ngFor='let subjective of subjectives;let i = index'>
+        <br>
+        <div>
+            <div class="sort">
+                <textarea class='question' readonly name="question" cols="50" rows="5">{{i+1}}丶{{subjective.Template}}</textarea>
+                <p class='title'>考生答案：</p>
+                <textarea class='answer' readonly name="answer" cols="50" rows="5">{{subjective.Answer}}</textarea>
+            </div>
+            <div class='correctAnswer'>
+                示例答案：
+                <br>
+                <textarea readonly>{{subjective.CorrectAnswer}}</textarea>
+            </div>
+            <div class='score'>
+                <p class="title">得分({{subjective.TotalScore}}分)：</p>
+                <input [ngClass]="{'beRed':scoreList[i].Mark,'beGreen':!scoreList[i].Mark}" class='inputScore' type="text" [(ngModel)]='scoreList[i].Score' (change)='scoreChange(i)' (blur)="saveScore(i)">
+                <span>{{subjective.ErrorMessage}}</span>
+            </div>
+        </div>
+    </div>
+    <div class='sendButton'>
+        <button kendoButton [primary]="true" (click)='sendScore()'>提交成绩</button>
+    </div>
+</div>

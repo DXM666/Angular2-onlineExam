@@ -1,0 +1,80 @@
+
+    .homepagebody{
+        background-color:  darkgray;
+        width:100%;
+        min-height:620px; 
+        height:auto!important; 
+    }
+    .button{
+        text-align: center;
+    }
+    .Exam{
+        width: 320px;
+        height: 80px;
+        background-color: #CC3366;
+        border:none;
+        border-radius: 10px;
+        font-size: 25px;
+        color: #fff;
+        outline:none;
+        -webkit-transition-duration: 0.4s; 
+        transition-duration: 0.4s;
+    }
+    .Exam:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .count{
+        padding-top: 20px;
+        padding-left: 20%;
+    }
+    .endtime{
+        padding-top: 20px;
+        padding-left: 20%;
+    }
+    .grade{
+        padding-top: 20px;       
+        padding-left: 20%;
+    }
+    .words{
+        font-size: 25px;  
+        color: black;    
+    }
+    .table{
+        padding-top: 5px;
+        padding-left: 20%;
+    }
+    .OverallResult{
+        width: 100px;
+        height: 30px;
+        background-color: #46C9C2;
+        border:none;
+        border-radius: 5px;
+        font-size: 15px;
+        color: #fff;
+        outline:none;
+        -webkit-transition-duration: 0.4s; 
+        transition-duration: 0.4s;
+    }
+    .OverallResult:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    table{
+        background-color: #fff;
+        width: 80%; 
+        border-collapse:collapse;    
+    }
+    th,td{
+        height: 50px;
+        width: 100px;
+        border: 2px solid  darkgray;
+        text-align: center;
+        font-size: 17px;
+    }
+    .exam-error{
+        text-align: center;
+        padding-top:200px;
+        font-size:25px;
+        color:aliceblue
+    } 
+
+  

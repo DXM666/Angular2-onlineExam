@@ -1,0 +1,59 @@
+<div class="modify_top" style="background-color:  darkgray">
+    <div class="modify_top_content">
+    <span style="float:right; line-height: 50px; color:aliceblue;margin-right:10px;">{{name}},Welcome</span>
+    <span style="font-size: 20px; line-height: 50px;color:aliceblue">OnlineExaminationSystem</span>
+    </div>
+</div>
+
+<div class="modify_body">
+    <div class="page_body_label">
+        <button style="margin-left: 14%;background-color:#4670CA !important;" (click)="tomodify()" class="modify_body_button">批改试卷</button>
+        <button style="margin-left: 15%" (click)="score()"  class="modify_body_button">查询成绩</button>
+        <button style="margin-left: 15%" (click)="statis()" class="modify_body_button">情况统计</button>
+        <button style="margin-left: 15%" (click)="time()"   class="modify_body_button">发布考试</button>
+    </div>
+    <div class="modify_body_unmark" *ngIf="datas?.length>0">
+        <h1>未批阅</h1>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>考试次数</th>
+                <th>操作</th>
+            </tr>
+            <tbody *ngFor="let data of datas;let i = index">
+            <tr>
+                <td>{{i+1}}</td>
+                <td >{{data.fullName}}</td>
+                <td >第{{data.examNum}}次</td>
+                <td *ngIf="data.subjectiveScore === -1"><button class="modify_button_unmark" (click)="modify(data.shortName,data.examNum,1)">
+                    批阅</button></td>
+                <td *ngIf="data.subjectiveScore === -2"><button class="modify_button_unmark" 
+                    [style.background-color]="'red'" (click)="modify(data.shortName,data.examNum,0)">
+                    继续批阅</button></td>
+            </tr></tbody>
+
+        </table>
+    </div>
+    <div class="modify_body_mark" *ngIf="marks?.length>0">
+        <h1>已批阅</h1>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>考试次数</th>
+                <th>操作</th>
+            </tr>
+            <tbody *ngFor="let mark of marks;let i=index">
+            <tr *ngIf="mark.subjectiveScore > -1 && mark.objectiveScore > -1">
+                <td>{{i+1}}</td>
+                <td>{{mark.fullName}}</td>
+                <td>第{{mark.examNum}}次</td>
+                <td><button class="modify_button_mark" (click)="changegrade(mark.shortName,mark.examNum)">修改成绩</button></td>
+            </tr></tbody>
+        </table>
+    </div>
+    <!-- <div *ngIf="datas.length < 1 && marks.length < 1" style="text-align:center;">
+        <span style="font-size:25px;padding-top:200px;">没有符合条件的数据</span></div> -->
+    <div class="bottom"></div>
+</div>

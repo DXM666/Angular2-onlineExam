@@ -1,0 +1,62 @@
+<div class="modify_top" style="background-color: darkgray">
+    <div class="modify_top_content">
+    <span style="float:right; line-height: 50px; color:aliceblue;margin-right:10px;">{{HRname}},Welcome</span>
+    <span style="font-size: 20px; line-height: 50px;color:aliceblue">OnlineExaminationSystem</span>
+    </div>
+</div>
+<div class="page_body">
+    <div class="page_body_label">
+        <button style="margin-left: 14%" (click)="tomodify()" class="modify_body_button">批改试卷</button>
+        <button style="margin-left: 15%;background-color:#4670CA !important;" (click)="score()"  class="modify_body_button">查询成绩</button>
+        <button style="margin-left: 15%" (click)="statis()" class="modify_body_button">情况统计</button>
+        <button style="margin-left: 15%" (click)="time()"   class="modify_body_button">发布考试</button>
+    </div>
+        
+        <div class="page_body_search">
+                <input type="checkbox" style=" margin-left:40px;"><span>全选</span>
+                <button class="OverallResult" (click)="export()">导出</button>
+                
+            <div class="select"> 
+                <input class="nameSelect" type="text" placeholder="通过英文全名查询" [(ngModel)]="name" 
+                (focus)="clearSelect()" maxlength="50">
+
+                <span>年份：</span>
+                <select name="YearNum" id="1" [(ngModel)]="YearNum" (click)="clearInput()" (change)="getPeriods(YearNum)">
+                <option *ngFor="let item of select" [value]="item.yearNum">{{item.yearNum}}
+                </option>
+                </select>
+                <span>期数：</span>
+                <select name="PeriodNum" id="2" [(ngModel)]="PeriodNum" (click)="clearInput()">
+                    <option *ngFor="let item of periods"  [value]="item">第{{item}}期</option>
+                </select>
+                <button class="OverallResult" (click)="searchInfo(YearNum,PeriodNum,name)" >
+                    查询</button>
+            </div>
+            <div style="font-size:15px;text-align:center;color:aliceblue;position:relative;top:10px;
+        float:right;height:20px;width:350px;;">
+            {{error}}</div>
+        </div>
+
+        <div align="center">
+            <table class="page_table" *ngIf="datas?.length > 0">
+                <tr>
+                    <th>导出选择</th>
+                    <th>排名</th>
+                    <th>英文全名</th>
+                    <th>客观题分数</th>
+                    <th>主观题分数</th>
+                    <th>总成绩（最高一次）</th>
+                </tr>
+                <tbody *ngFor="let data of datas;let i=index">
+                <tr *ngIf="data.objectiveScore != -1">
+                    <td><input type="checkbox"></td>
+                    <td>{{i+1}}</td>
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.objectiveScore | statusReform}}</td>
+                    <td>{{data.subjectiveScore | statusReform}}</td>
+                    <td>{{data.totalScore | statusReform}}</td>
+                </tr></tbody>
+            </table>
+        </div>      
+        <div class="bottom"></div>
+    </div>

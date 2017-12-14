@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.modify_body{
+    background-color:  darkgray;
+    margin: 0px;
+    width: 100%;
+    min-height:630px;
+    height:auto!important; 
+}
+.modify_body_label{
+    margin: 0px auto;
+    background-color: bisque;
+}
+.modify_body_unmark{
+    height: auto;
+    align-content: center;
+    margin-left: 15%;
+    width: 90%;
+}
+table,th,td{
+    border: 2px solid  darkgray;
+}
+.modify_button_unmark{
+    background-color: #46C9C2;
+    border:none;
+    height: 30px;
+    width: 40%;
+    font-size: large;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    outline:none;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+.modify_button_unmark:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.modify_body_mark{
+    height: auto;
+    align-content: center;
+    margin-left: 15%;
+    width: 90%;
+}
+.modify_button_mark{
+    background-color: #46C9C2;
+    border:none;
+    height: 30px;
+    width: 40%;
+    font-size: large;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    outline:none;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.modify_button_mark:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.bottom{
+    height: 40px;
+}
+
+/*HR页面头*/
+.modify_top{
+    width: 100%;
+    height: 50px;
+}
+.modify_top_content{
+    height: 50px;
+    text-align: center;
+}
+.page_body_label{
+    height: 40px;
+    align-content: center;
+}
+.modify_body_button{
+    background-color: #46C9C2;
+    border:none;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    outline:none;
+    position: relative;
+    top: 5px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+.modify_body_button:hover{
+    background-color: #4670CA;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

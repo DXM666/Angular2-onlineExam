@@ -1,0 +1,26 @@
+<div class="modify_top" style="background-color: #B5B5B5">
+    <div class="modify_top_content">
+    <span style="float:right; line-height: 50px; color:aliceblue;margin-right:10px;">{{HRname}},Welcome</span>
+    <span style="font-size: 20px; line-height: 50px;color:aliceblue">OnlineExaminationSystem</span>
+    </div>
+</div>
+
+<div class="statis_body">
+    <div class="page_body_label">
+        <button style="margin-left: 14%" (click)="tomodify()" class="modify_body_button">批改试卷</button>
+        <button style="margin-left: 15%" (click)="score()"  class="modify_body_button">查询成绩</button>
+        <button style="margin-left: 15%;background-color:#4670CA !important;" (click)="statis()" class="modify_body_button">情况统计</button>
+        <button style="margin-left: 15%" (click)="time()"   class="modify_body_button">发布考试</button>
+    </div>
+    <div class="statis_error">
+        <div>
+            <h1>答题情况统计:</h1>
+        </div>
+        <div class="histogram">
+            <p>试卷A:</p>
+            <div id ="theChart1"></div>
+            <p>试卷B:</p>
+            <div id ="theChart2"></div>
+        </div>
+    </div>
+</div>

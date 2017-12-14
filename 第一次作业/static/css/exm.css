@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+#mygirlsCarousel{
+    margin: 50px 0 0 0;
+}
+.logo{
+    padding:0;
+}
+#navbarCollapsr ul{
+    margin-top: 0;
+}
+
+.carousel-inner img {
+    margin: 0 auto;
+}
+.tab1 h2{
+    text-align: center;
+}
+.tab1 p{
+    text-align: center;
+    text-decoration: line-through;
+}
+.imtab1{
+    height: 10%;
+    width: 10%;
+}
+.imtab2{
+    height: 60%;
+    width: 60%;
+    margin-bottom: 10px;
+}
+#footer {
+    background: #e6e6e6;
+    padding:20px;
+    color: #b7b7b7;
+    border-top: solid;
+}
+.tab2{
+    background: #e4f2ef;
+}
+.tab3{
+    background: #bbf2e3;
+}
+.tab3 .row{
+    text-align: center;
+}
+.tab3 img{
+    width:80%;
+}

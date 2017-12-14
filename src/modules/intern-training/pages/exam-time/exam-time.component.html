@@ -1,0 +1,107 @@
+<div class="modify_top" style="background-color: #B5B5B5">
+  <div class="modify_top_content">
+    <span style="float:right; line-height: 50px; color:aliceblue;margin-right:10px;">{{HRname}},Welcome</span>
+    <span style="font-size: 20px; line-height: 50px;color:aliceblue">OnlineExaminationSystem</span>
+  </div>
+</div>
+
+<div class="time_body">
+  <div class="page_body_label">
+    <button style="margin-left: 14%" (click)="tomodify()" class="modify_body_button">批改试卷</button>
+    <button style="margin-left: 15%" (click)="score()" class="modify_body_button">查询成绩</button>
+    <button style="margin-left: 15%" (click)="statis()" class="modify_body_button">情况统计</button>
+    <button style="margin-left: 15%;background-color:#4670CA !important;" (click)="time()" class="modify_body_button">发布考试</button>
+  </div>
+  <p></p>
+  <form class="search-form">
+
+  </form>
+  <div class='body'>
+    <div class="form">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group form-group-sm">
+            <label style="font-size:15px;color:aliceblue" class="control-label">设置开始考试时间：</label>
+            <div class="row">
+              <div class="col-md-4">
+                <input type="date"   min="2017-12-2"  [(ngModel)]="date" value="{{date}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p></p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group form-group-sm">
+            <label style="font-size:15px;color:aliceblue" class="control-label">本期考试需要通知的职员：</label>
+            <p></p>
+          </div>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <!--员工全名-->
+          <input class="form-control" placeholder="英文全名(不区分大小写)"  onkeyup="value=value.replace(/[^\a-\z\A-\u4E00-\u9FA5\.]/g,'')"  [(ngModel)]="People.fullName" value="{{People.fullName}}">
+        </div>
+
+        <div class="col-md-1">
+          <button class="time_button" (click)="addInput(People.fullName)" (click)="clear()">增加</button>
+        </div>
+        <div class="col-md-1">
+          <button class="time_button" (click)="sumbit()"> 确定
+                       </button>
+        </div>
+
+        <div class="col-md-2">
+          <a style="color:brown">{{strerror}}</a>
+        </div>
+
+      </div>
+      <div style="height:80px">
+
+
+        <!-- <div class="row">
+                    <div *ngFor="let i of PostData">
+                        <div class="clearfix" ng-if="i % 3 == 0">
+                        <div class="col-sm-4">
+                            <input class="form-control" [(ngModel)]="i.fullName" value="{{i.fullName}}">
+                            <button class="btn btn-link" (click)="removeInput(i)">删除</button>
+                        </div>
+                      </div>
+                    </div>
+                </div> -->
+
+        <div class="form-group form-group-sm" *ngFor="let i of PostData">
+          <div style="text-align:center">
+            <div class="col-sm-2" style="float:left;width:200px;margin-left:50px;margin-top:10px">
+              <input readonly="readonly" class="form-control" [(ngModel)]="i.fullName" value="{{i.fullName}}">
+            </div>
+            <div class="col-sm-1" style="float:left;width:30px;margin-top:10px">
+              <button class="btn btn-link" (click)="removeInput(i)">删除</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p></p>
+
+    <kendo-grid [data]="List" [height]="400" >
+      <kendo-grid-column title="年份" field="yearNum" [width]="100"></kendo-grid-column>
+      <kendo-grid-column title="期数" field="periodNum" [width]="100"></kendo-grid-column>
+      <kendo-grid-column title="开始时间" field="startTime" width="100">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem['startTime'] | date: 'yyyy/MM/dd HH:mm'}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column title="截止时间" field="endTime" width="100">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem['endTime'] | date: 'yyyy/MM/dd HH:mm'}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column title="总人数" field="employeeNum" [width]="100"></kendo-grid-column>
+    </kendo-grid>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+
+<div onselectstart="return false;" class="detail_top" style="background-color: aliceblue">
+    <div class="detail_top_content">
+    <span class="detail_name" style="float:right">Echo,Welcome</span>
+    <span style="font-size: 20px">OnlineExaminationSystem</span>
+    </div>
+</div>
+
+<div onselectstart="return false;" class="detail_body">
+    <div *ngFor="let item of fillBlanks;let i = index">
+        <div *ngIf="item.question!=''">
+            <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        </div>
+
+        <div *ngIf="mySub_blank[i].Istrue == true">
+            <div *ngFor="let k of mySub_blank[i].option;let j = index">
+                <input style="color: green;" disabled='disabled' type="text"  [(ngModel)]="mySub_blank[i].option[j]" placeholder="请填入答案"/>
+            </div>
+        </div>
+
+        <div *ngIf="mySub_blank[i].Istrue == false">
+            <div *ngFor="let k of mySub_blank[i].option;let j = index">
+                <input style="color: red;" disabled='disabled' type="text"  [(ngModel)]="mySub_blank[i].option[j]" placeholder="请填入答案"/>
+            </div>
+        </div>
+
+        <br/><label style="color: green">{{fillBlanks[i].correctAnswer}}</label>
+    </div>
+
+    <div *ngFor="let item of judgments;let i = index">
+            <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        <div *ngIf="mySub_judge[i].option == mySub_judge[i].Correctanswer">
+            <div *ngIf="mySub_judge[i].option == true">
+                <label style="color: green">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].option"/>正确
+                </label>
+                <label>
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].option"/>错误
+                </label>
+                <label>
+                    <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].option"/>
+                </label>
+            </div>
+
+            <div *ngIf="mySub_judge[i].option == false">
+                <label>
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].option"/>正确
+                </label>
+                <label style="color: green">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].option"/>错误
+                </label>
+                <label>
+                    <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].option"/>
+                </label>
+            </div>
+        </div>
+
+        <div *ngIf="mySub_judge[i].option != mySub_judge[i].Correctanswer">
+            <div *ngIf="mySub_judge[i].option == true">
+                <label style="color: green">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].option"/>正确
+                </label>
+                <label style="color: red">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].Correctanswer"/>错误
+                </label>
+                <label>
+                    <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].option"/>
+                </label>
+            </div>
+            <div *ngIf="mySub_judge[i].option == false">
+                <label style="color: red">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].Correctanswer"/>正确
+                </label>
+                <label style="color: green">
+                    <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].option"/>错误
+                </label>
+                <label>
+                    <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].option"/>
+                </label>
+            </div>
+            <div *ngIf="mySub_judge[i].option == 'error'">
+                <div *ngIf="mySub_judge[i].Correctanswer == true">
+                    <label style="color: red">
+                        <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].Correctanswer"/>正确
+                    </label>
+                    <label>
+                        <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].Correctanswer"/>错误
+                    </label>
+                </div>
+                <div *ngIf="mySub_judge[i].Correctanswer == false">
+                    <label>
+                        <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].Correctanswer"/>正确
+                    </label>
+                    <label style="color: red">
+                        <input type="radio" disabled='disabled' name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].Correctanswer"/>错误
+                    </label>
+                </div>
+                <label>
+                    <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].option"/>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngFor="let item of subjects;let i = index">
+        <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        <textarea disabled='disabled'  [(ngModel)]="mySub_subject[i].option"></textarea>
+        <br/><label style="color: green">{{subjects[i].correctAnswer}}</label>
+    </div>
+    <button class="detail_button" (click)="homepage()">返回</button>
+</div>
+
+
+
+
+

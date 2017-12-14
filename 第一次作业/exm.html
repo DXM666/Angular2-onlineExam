@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动漫妹子</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+             $('#mygirlsCarousel').carousel({
+                    interval :3000
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="static/css/exm.css">
+</head>
+<body>
+    <!--导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header logo">
+                <a href="" class="navbar-brand">动漫老婆</a>
+                <button  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapsr"
+                         aria-expanded="false" aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right " id="navbarCollapsr">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" ><span class="glyphicon glyphicon-home"></span> 后宫</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-list"></span> 中二病</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-fire"></span> 抖s</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 搞基</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 轮播部分-->
+    <div id="mygirlsCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#mygirlsCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#mygirlsCarousel" data-slide-to="1"></li>
+            <li data-target="#mygirlsCarousel" data-slide-to="2"></li>
+            <li data-target="#mygirlsCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active"  style="background: #330033;">
+                <img src="img/m1.jpeg" alt="第一张">
+            </div>
+            <div class="item" style="background:#990000;">
+                <img src="img/m2.jpg" alt="第二张" >
+            </div>
+            <div class="item" style="background:#e1ffe0;">
+                <img src="img/m3.jpg" alt="第三张">
+            </div>
+            <div class="item" style="background:#F2F2F2;">
+                <img src="img/m4.jpg" alt="第四张">
+            </div>
+            <!--左右翻页-->
+            <a href="#mygirlsCarousel" data-slide="prev" class="carousel-control left">
+                <span class="glyphicon glyphicon-chevron-left"/>
+            </a>
+            <a href="#mygirlsCarousel" data-slide="next"class="carousel-control right">
+                <span class="glyphicon glyphicon-chevron-right"/>
+            </a>
+        </div>
+    </div>
+    <!--网页内容-->
+    <div class="tab1">
+        <div class="container">
+            <h2>为什么世界这么美好还要作死</h2>
+            <p>不作死的话,活着还有什么意义 <img class="imtab1" src="img/m5.jpeg"></p>
+            <div class="row" style="text-align: center;">
+                <div class="col-md-6">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#"><img class="imtab2" src="img/m8.jpg"></a>
+                        </div>
+                        <div class="media-right">
+                            <h4 class="media-heading">现充</h4>
+                            <p1>现充（リア充）指是在现实世界中生活得充实的人们。</p1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#"><img class="imtab2" src="img/m11.jpg"></a>
+                        </div>
+                        <div class="media-right">
+                            <h4 class="media-heading">死宅</h4>
+                            <p1>死宅这词是对很宅很宅的宅男或宅女的谑称，形容一个人宅到无可救药。。</p1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="tab2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/dm1.gif" class="img-responsive center-block">
+                </div>
+                <div class="col-md-6">
+                    <h3>比如说</h3>
+                    <p>小妹妹,叔叔帮你检查身体</p>
+                    <p>但是人家并不想理你</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h3>真相</h3>
+                    <p>同性才是真爱</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <img src="img/dm2.gif" class="img-responsive center-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容底部-->
+    <div id="footer" >
+        <div class="container" style="text-align: center">
+            <p>自制娱乐 | 学习交流 | bootstrap熟悉</p>
+            <p>详情咨询中二病神经病院</p>
+        </div>
+    </div>
+</body>
+</html>

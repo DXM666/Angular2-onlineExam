@@ -1,0 +1,55 @@
+<div class="page_top" style="background-color: #E8E8E8">
+    <div class="modify_top_content">
+    <span style="float:right; line-height: 50px; color:#0c220d;margin-right:10px;">{{StaffName}},Welcome</span>
+    <span style="font-size: 20px; line-height: 50px;color:#0c220d">OnlineExaminationSystem</span>
+    </div>
+</div>
+
+<div class="page">
+    <!--<div *ngFor="let item of data1;let i = index" class="choose">-->
+        <!--<strong style="align-content: center">{{item.questionNumber}}&#45;&#45;{{item.question}}<br/></strong>-->
+        <!--<div *ngFor="let optionItem of item.options;let j = index">-->
+            <!--<input style="align-content: center" type="radio" name="radio{{item.questionNumber}}"  [value]="optionItem" [(ngModel)]="mySub_radio[i].Answer[0]" required/>{{optionItem}}-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div *ngFor="let item of data2;let i = index">-->
+        <!--<strong>{{item.questionNumber}}&#45;&#45;{{item.question}}<br/></strong>-->
+        <!--<div *ngFor="let optionItem of item.options;let j = index">-->
+            <!--<input type="checkbox" name="checkbox{{item.questionNumber}}" [(ngModel)]="mySub_check[i].Answer[j]"/>{{optionItem}}-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div *ngFor="let item of fillBlanks;let i = index;trackBy:customTrackBy">
+        <div *ngIf="item.question!=''">
+            <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        </div>
+        <div *ngFor="let itemBlankOption of mySub_blank[i].Answer;let j = index;trackBy:customTrackBy">
+            <input type="text" placeholder="请填入答案" [(ngModel)]="mySub_blank[i].Answer[j]" [value]="mySub_blank[i].Answer[j]"/>
+        </div>
+    </div>
+
+    <div *ngFor="let item of judgments;let i = index">
+        <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        <label>
+            <input type="radio"  name="radio{{item.questionNumber}}" [value]=true [(ngModel)]="mySub_judge[i].Answer"/>正确
+        </label>
+        <label>
+            <input type="radio"  name="radio{{item.questionNumber}}" [value]=false [(ngModel)]="mySub_judge[i].Answer"/>错误
+        </label>
+            <input type="radio"  hidden="hidden"  [value]=null [(ngModel)]="mySub_judge[i].Answer"/>
+    </div>
+
+    <div *ngFor="let item of subjects;let i = index">
+        <strong>{{item.questionNumber}}--{{item.question}}<br/></strong>
+        <textarea [(ngModel)]="mySub_subject[i].Answer"></textarea>
+    </div>
+
+    <button class="page_button" (click)="back()">返回</button>
+    <button class="page_button" (click)="info()" style="float: right">暂存</button>
+    <button class="page_button" (click)="submit_topic()" style="float: right;margin-right: 20px">提交</button>
+</div>
+
+
+
+

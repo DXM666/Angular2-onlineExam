@@ -1,0 +1,13 @@
+.page{
+    background-color: #B5B5B5;
+}
+.page_button{
+    background-color:#46C9C2;
+    width: 100px;
+    height: 30px;
+}
+/*.unselect{*/
+    /*-moz-user-select: none;*/
+    /*-khtml-user-select: none;*/
+    /*user-select: none;*/
+/*}*/
